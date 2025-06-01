@@ -1,0 +1,70 @@
+<div class="flex flex-col mainDiv">
+  <div
+    class="p-4 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl shadow-lg w-full flex-1 flex flex-col min-h-0"
+  >
+    <div class="relative mb-2 flex-1 min-h-0">
+      <ng-container *ngIf="!isLoading; else loadingTemplate">
+        <textarea
+          [(ngModel)]="inputText"
+          [disabled]="isLoading"
+          (ngModelChange)="onTextChange($event)"
+          class="w-full h-full p-3 text-lg border-2 border-indigo-300 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors bg-white shadow-sm hover:shadow-md resize-none"
+          placeholder="Enter your text here..."
+          aria-label="Input text"
+        ></textarea>
+      </ng-container>
+      <ng-template #loadingTemplate>
+        <div
+          class="w-full h-full flex items-center justify-center bg-white rounded-lg shadow-sm"
+        >
+          <div class="loader" aria-label="Loading animation"></div>
+          <span class="sr-only">Loading...</span>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="flex flex-col items-start gap-y-4 mt-4 control-section">
+      <div class="flex items-center justify-start gap-x-4 w-full">
+        <p-button
+          (onClick)="sendData()"
+          label="Send data"
+          icon="pi pi-send"
+          [disabled]="isLoading || inputText.length == 0"
+          iconPos="right"
+          styleClass="send-button"
+        />
+        <div class="text-sm text-gray-700">
+          <span class="font-medium">Current Code:</span>
+          <span class="ml-2 px-2 py-1 bg-gray-100 rounded">{{
+            currentCode
+          }}</span>
+        </div>
+        <p-button
+          *ngIf="hasSuccess"
+          (onClick)="copyText()"
+          [label]="copyButtonLabel"
+          [icon]="copyButtonIcon"
+          size="small"
+          icon="pi pi-copy"
+          [disabled]="isLoading || currentCode == 'N.A'"
+          iconPos="right"
+          styleClass="copy-button"
+        />
+      </div>
+      @if(hasError) {
+      <div class="text-sm text-red-700 w-full">
+        <span class="font-medium text-gray-700">Error:</span>
+        <span class="ml-2 px-2 py-1 bg-gray-100 rounded">{{ errorMsg }}</span>
+      </div>
+      } @if(hasSuccess) {
+      <div class="text-sm text-gray-700 w-full">
+        <span class="font-medium text-gray-700">Message:</span>
+        <span class="ml-2 px-2 py-1 bg-gray-100 rounded"
+          >Data sent successfully, use the doc-code: {{ currentCode }} to fetch
+          data.</span
+        >
+      </div>
+      }
+    </div>
+  </div>
+</div>

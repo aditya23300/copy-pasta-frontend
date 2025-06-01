@@ -1,0 +1,56 @@
+<div class="mainDiv">
+  <div class="navbar">
+    <div>
+      <img src="copy-pasta-logo.png" alt="user-avatar" class="h-24" />
+    </div>
+    <div class="horizontal-stack">
+      <div>
+        <h3 class="font-style-cursive text-3xl">
+          Your goto assistant for "Ctrl-C to Ctrl-V" across devices...
+        </h3>
+      </div>
+      @if( currentPath == 'send-data' || currentPath == 'receive-data' ){
+      <div class="loginAnimation">
+        <ng-lottie
+          class="smallAnimation"
+          [options]="o1"
+          (animationCreated)="animationCreated($event)"
+        ></ng-lottie>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="card">
+    <p-tabs>
+      <p-tablist>
+        @for (tab of tabs; track tab.route) {
+        <p-tab
+          [routerLink]="tab.route"
+          routerLinkActive="p-tab-active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          class="flex items-center gap-2 text-inherit"
+        >
+          <i [class]="tab.icon"></i>
+          <span>{{ tab.label }}</span>
+        </p-tab>
+        }
+      </p-tablist>
+    </p-tabs>
+  </div>
+
+  <div class="content h-full flex-1">
+    @if( !( currentPath == 'send-data' || currentPath == 'receive-data' )){
+    <div class="loginAnimation">
+      <ng-lottie
+        class="bigAnimation"
+        [options]="o1"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+    }
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="footer">Created by #unknown_233</div>
+</div>

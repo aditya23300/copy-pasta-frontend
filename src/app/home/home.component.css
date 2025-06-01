@@ -1,0 +1,114 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 16px;
+}
+.navbar {
+    background-color: #0000;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid black;
+   align-items: center;
+}
+
+
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    background-color: #0000;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+
+.big-size{
+    font-size: 20px;
+}
+.card{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid black;
+   align-items: center;
+}
+.content {
+   padding: 5px;
+    
+}
+.font-style-cursive {
+  font-family: "Caveat";
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.loginAnimation {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+ .bigAnimation {
+  width: 300px;
+  height: 300px;
+}
+
+.smallAnimation{
+  width: 120px;
+  height: 120px;
+  padding:0px;
+  margin:0px;
+}
+.horizontal-stack{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .navbar img {
+    height: 72px; 
+  }
+
+  .navbar h3 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+.smallAnimation{
+  width:50px;
+  height: 50px;
+  padding:0px;
+  margin:0px;
+}
+.content {
+   padding: 2px;   
+}  
+
+
+}
+@media (max-width: 480px) {
+  .navbar h3 {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .navbar img {
+    height: 64px;
+  }
+}
