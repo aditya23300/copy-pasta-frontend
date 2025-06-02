@@ -8,13 +8,12 @@ export const routes: Routes = [
     path: 'send-data',
     component: SendDataComponent,
   },
-  { path: '', redirectTo: '/', pathMatch: 'full' },
   {
     path: 'receive-data',
     component: ReceiveDataComponent,
   },
   {
-    path: '',
-    component: AppComponent,
-  },
+    path: '**',
+    redirectTo: ''
+  }
 ];
